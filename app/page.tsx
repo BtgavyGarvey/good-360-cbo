@@ -34,7 +34,7 @@ export default function HomePage() {
              Login
           </Link>
 
-          <Link href="/about" className="secondary-btn">
+          <Link href="/#" className="secondary-btn">
             Learn More
           </Link>
         </div>

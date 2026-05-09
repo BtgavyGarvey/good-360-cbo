@@ -1,6 +1,6 @@
 'use client'
 
-import './admin-layout.css'
+import '../admin-layout.css'
 
 import { signIn, useSession } from 'next-auth/react'
 import { Shield, LogIn } from 'lucide-react'
