@@ -12,11 +12,12 @@ import {
   Settings,
   ChevronRight,
   BookOpen,
+  LogOut,
 } from 'lucide-react'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useSession } from 'next-auth/react'
+import { usePathname, useRouter } from 'next/navigation'
+import { signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 export default function AdminLayout({
@@ -24,7 +25,12 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode
 }) {
+  const router = useRouter()
   const { data: session } = useSession()
+
+  if (!session) {
+    router.push('/')
+  }
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
@@ -48,6 +54,11 @@ export default function AdminLayout({
       name: 'Audit Logs',
       href: '/admin/audit',
       icon: BookOpen,
+    },
+    {
+      name: 'Sign Out',
+      href: '#',
+      icon: LogOut,
     },
     // {
     //   name: 'Settings',
@@ -99,6 +110,28 @@ export default function AdminLayout({
             {navItems.map((item) => {
               const Icon = item.icon
               const active = pathname === item.href
+              const isLogOut = item.name === 'Sign Out'
+
+              if (isLogOut) {
+                return (
+                  <button
+                    key={item.name}
+                    className={`nav-item ${active ? 'active' : ''}`}
+                    onClick={() => {
+                      signOut()
+                      // router.push('/')
+                    }}
+                  >
+                    <div className="nav-left">
+                      <Icon size={20} />
+                      <span>{item.name}</span>
+                    </div>
+
+                    <ChevronRight size={16} />
+                  </button>
+                )
+              }
+              else {
 
               return (
                 <Link
@@ -115,6 +148,7 @@ export default function AdminLayout({
                   <ChevronRight size={16} />
                 </Link>
               )
+            }
             })}
           </nav>
 

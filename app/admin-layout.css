@@ -964,3 +964,128 @@
     font-size: 30px;
   }
 }
+
+/* =========================
+   LOGIN PAGE (PREMIUM BRANDING)
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(circle at top, #eef2ff, #f8fafc);
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+
+  border-radius: 28px;
+  padding: 42px;
+
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.login-icon-wrapper {
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
+}
+
+.login-icon {
+  width: 34px;
+  height: 34px;
+  color: white;
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.login-description {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.login-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 16px;
+
+  border-radius: 14px;
+
+  background: #111827;
+  color: white;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.login-button:hover {
+  background: #1f2937;
+  transform: translateY(-2px);
+}
+
+.login-button-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.login-footer {
+  margin-top: 20px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px;
+    border-radius: 22px;
+  }
+
+  .login-title {
+    font-size: 22px;
+  }
+}

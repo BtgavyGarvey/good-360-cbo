@@ -11,4 +11,3 @@ export function formatLabel(str : string) {
   // Capitalize the first letter
   return withSpaces.charAt(0).toUpperCase() + withSpaces.slice(1);
 }
-
