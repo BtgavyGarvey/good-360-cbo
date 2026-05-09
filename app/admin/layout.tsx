@@ -29,7 +29,7 @@ export default function AdminLayout({
   const { data: session } = useSession()
 
   if (!session) {
-    router.push('/')
+    router.push('/login')
   }
   const pathname = usePathname()
   const [open, setOpen] = useState(false)

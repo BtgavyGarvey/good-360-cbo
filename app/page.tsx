@@ -31,7 +31,7 @@ export default function HomePage() {
 
         <div className="home-actions">
           <Link href="/login" className="primary-btn">
-             Login
+            Admin Login
           </Link>
 
           <Link href="/#" className="secondary-btn">
