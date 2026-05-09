@@ -1089,3 +1089,140 @@
     font-size: 22px;
   }
 }
+
+/* =========================
+   LOGIN LEGAL LINKS
+========================= */
+
+.login-links {
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-size: 12px;
+}
+
+.login-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: 0.2s ease;
+}
+
+.login-link:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+.login-link-separator {
+  color: #cbd5e1;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .login-links {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .login-link-separator {
+    display: none;
+  }
+}
+
+
+/* =========================
+   GOOD 360 CBO - LEGAL PAGES
+========================= */
+
+.legal-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 48px 20px;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.legal-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: 1px;
+}
+
+.legal-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #6366f1;
+  margin-top: 6px;
+}
+
+.legal-meta {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.legal-card {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+  border: 1px solid #eef2ff;
+}
+
+.legal-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.legal-text {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.legal-list {
+  padding-left: 18px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.legal-footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .legal-title {
+    font-size: 22px;
+  }
+
+  .legal-card {
+    padding: 18px;
+  }
+}

@@ -2,23 +2,27 @@
 
 import './admin-layout.css'
 
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import { Shield, LogIn } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
-export default function LoginPage() {
+import { useEffect } from 'react'
+import Link from 'next/link'
 
+export default function LoginPage() {
   const router = useRouter()
-    const { data: session } = useSession()
-  
+  const { data: session } = useSession()
+
+  // safer redirect (no render loop)
+  useEffect(() => {
     if (session) {
       router.push('/admin')
     }
+  }, [session, router])
 
   return (
     <div className="login-page">
       <div className="login-card">
-        
+
         {/* Icon */}
         <div className="login-icon-wrapper">
           <Shield className="login-icon" />
@@ -29,15 +33,15 @@ export default function LoginPage() {
           GOOD 360 CBO
         </h2>
 
-        <p className="login-subtitle">
+        {/* <p className="login-subtitle">
           Admin Portal Access
-        </p>
+        </p> */}
 
-        <p className="login-description">
+        {/* <p className="login-description">
           Secure sign-in required to manage members, contributions, and system records.
-        </p>
+        </p> */}
 
-        {/* Button */}
+        {/* Login Button */}
         <button
           onClick={() => signIn('google')}
           className="login-button"
@@ -46,10 +50,24 @@ export default function LoginPage() {
           Continue with Google
         </button>
 
+        {/* Terms + Privacy */}
+        <div className="login-links">
+          <Link href="/terms" className="login-link">
+            Terms & Conditions
+          </Link>
+
+          <span className="login-link-separator">•</span>
+
+          <Link href="/privacy" className="login-link">
+            Privacy Policy
+          </Link>
+        </div>
+
         {/* Footer note */}
-        <p className="login-footer">
+        {/* <p className="login-footer">
           Authorized personnel only
-        </p>
+        </p> */}
+
       </div>
     </div>
   )
