@@ -117,6 +117,9 @@ export default function MembersPage() {
           }
           className="form-select"
         >
+         <option value="memberNumber">
+            Sort by Member Number
+          </option>
           <option value="fullName">
             Sort by Name
           </option>

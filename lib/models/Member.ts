@@ -6,11 +6,11 @@ const ContributionSchema = new mongoose.Schema({
 }, { _id: false, timestamps: true });
 
 const MemberSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, required: false, unique: false, index: true, ref: 'User' },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   memberNumber: { type: String, required: true, unique: true, index: true },
   fullName: { type: String, required: true },
-  nationalId: { type: String, required: false, unique: false, index: true },
-  contact: { type: String, required: false, unique: false, index: true },
+  nationalId: { type: String, required: true, unique: true, index: true },
+  contact: { type: String, required: true, unique: true, index: true },
   church: { type: String },
   contributions: {
     type: [ContributionSchema],

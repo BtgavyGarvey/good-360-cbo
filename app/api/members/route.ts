@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
   const query = searchParams.get('search') || ''
   const page = parseInt(searchParams.get('page') || '1', 10)
   const limit = parseInt(searchParams.get('limit') || '10', 10)
-  const sortField = searchParams.get('sort') || 'fullName'
+  const sortField = searchParams.get('sort') || 'memberNumber'
   const sortOrder = searchParams.get('order') === 'desc' ? -1 : 1
 
   const regex = new RegExp(query, 'i')
