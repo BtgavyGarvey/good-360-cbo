@@ -15,7 +15,7 @@ export default function MembersPage() {
   const [page, setPage] = useState(1)
   const [pages, setPages] = useState(1)
   const [limit, setLimit] = useState(10)
-  const [sort, setSort] = useState('fullName')
+  const [sort, setSort] = useState('memberNumber')
   const [order, setOrder] = useState<'asc' | 'desc'>(
     'asc'
   )
@@ -24,7 +24,7 @@ export default function MembersPage() {
     query = '',
     pageNum = 1,
     pageSize = 10,
-    sortField = 'fullName',
+    sortField = 'memberNumber',
     sortOrder = 'asc'
   ) {
     const res = await fetch(

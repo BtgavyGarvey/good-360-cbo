@@ -38,6 +38,12 @@ export default function ContributionEntryPage() {
 
     if (!month || !amount) return
 
+    alert(
+      `Saving contribution for ${month} with amount ${amount}`
+    )
+
+    return
+
     await fetch(
       `/api/members/${params.id}/contributions`,
       {
@@ -72,21 +78,108 @@ export default function ContributionEntryPage() {
           className="form-container"
         >
           {/* Month */}
-          <div className="form-group">
-            <label className="form-label">
-              Month
-            </label>
+          <div className="month-year-group">
 
-            <input
-              type="month"
-              value={month}
-              onChange={(e) =>
+            {/* Month Select */}
+            <select
+              value={month.split('-')[1] || ''}
+              onChange={(e) => {
+                const yearPart =
+                  month.split('-')[0] ||
+                  new Date()
+                    .getFullYear()
+                    .toString()
+
                 setMonth(
-                  e.target.value
+                  `${yearPart}-${e.target.value}`
                 )
-              }
+              }}
               className="form-input"
-            />
+            >
+              <option value="">
+                Select Month
+              </option>
+
+              <option value="01">
+                January
+              </option>
+
+              <option value="02">
+                February
+              </option>
+
+              <option value="03">
+                March
+              </option>
+
+              <option value="04">
+                April
+              </option>
+
+              <option value="05">
+                May
+              </option>
+
+              <option value="06">
+                June
+              </option>
+
+              <option value="07">
+                July
+              </option>
+
+              <option value="08">
+                August
+              </option>
+
+              <option value="09">
+                September
+              </option>
+
+              <option value="10">
+                October
+              </option>
+
+              <option value="11">
+                November
+              </option>
+
+              <option value="12">
+                December
+              </option>
+            </select>
+
+            {/* Year Select */}
+            <select
+              value={month.split('-')[0] || ''}
+              onChange={(e) => {
+                const monthPart =
+                  month.split('-')[1] || '01'
+
+                setMonth(
+                  `${e.target.value}-${monthPart}`
+                )
+              }}
+              className="form-input"
+            >
+              {Array.from(
+                {
+                  length:
+                    new Date().getFullYear() -
+                    2026 +
+                    1,
+                },
+                (_, i) => 2026 + i
+              ).map((year) => (
+                <option
+                  key={year}
+                  value={year}
+                >
+                  {year}
+                </option>
+              ))}
+            </select>
+
           </div>
 
           {/* Amount */}
