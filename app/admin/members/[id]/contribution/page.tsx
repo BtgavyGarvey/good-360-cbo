@@ -38,12 +38,6 @@ export default function ContributionEntryPage() {
 
     if (!month || !amount) return
 
-    alert(
-      `Saving contribution for ${month} with amount ${amount}`
-    )
-
-    return
-
     await fetch(
       `/api/members/${params.id}/contributions`,
       {

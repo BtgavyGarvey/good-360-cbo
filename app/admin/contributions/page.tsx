@@ -186,7 +186,7 @@ export default function ContributionsPage() {
               <tr key={m._id}>
                 <td className="member-cell">
                   <Link
-                    href={`/admin/members/${m._id}`}
+                    href={`/admin/members/${m._id}/contributions`}
                     className="link-primary"
                   >
                     {m.memberNumber}
